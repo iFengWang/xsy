@@ -4,5 +4,4 @@ var PostSchema = new mongoose.Schema({
     post: {type:String},
     time: {type:Date}
 });
-
 module.exports = mongoose.model('Post',PostSchema);
