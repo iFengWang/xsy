@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 function insertPost() {
   var p = new Post({
-    mobile:'17711111111',
+    mobile:'17722222222',
     post:'好人一生平安，好大一个家大中国',
     time:new Date()
   });
