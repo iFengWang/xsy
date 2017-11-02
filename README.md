@@ -1,2 +1,2 @@
-# xsy_ide
+# xsy
 自动化创建App平台
