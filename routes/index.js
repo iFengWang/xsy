@@ -5,23 +5,79 @@ var Post = require('../models/post');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-  insertPost();
+  // insertPost(res);
+  showAllPost(res);
+  // deletePost(res);
+  // updatePost(res);
+  // res.render('index', { title: 'Express' , docs:null});
 });
 
-function insertPost() {
+router.post('/', function(req,res, next) {
+  insertPost(req,res,next);
+});
+
+//业务逻辑************************************************
+function insertPost(req,res,next) {
   var p = new Post({
-    mobile:'17722222222',
-    post:'好人一生平安，好大一个家大中国',
+    mobile:'17799999999',
+    post:req.body.message,
     time:new Date()
   });
 
-  p.save(function(err, res) {
+  // p.save(function(err, docs) {
+  //   if (err) {
+  //     console.log("Error:" + err);
+  //   }
+  //   else {
+  //       console.log("docs:" + docs);
+  //   }
+  // });
+
+  Post.create(p, function(err, docs) {
     if (err) {
       console.log("Error:" + err);
     }
     else {
-        console.log("Res:" + res);
+        console.log("docs:" + docs);
+    }
+    showAllPost(res);
+  });
+
+  // Post.insertMany([],function(err, docs) {});
+}
+
+function deletePost(res) {
+  Post.remove({mobile:'17722222222'},function(err, docs) {
+    if (err) {
+      console.log("Error:" + err);
+    }
+    else {
+        console.log("docs:" + docs);
+    }
+    showAllPost(res);
+  });
+}
+
+function updatePost(res) {
+  Post.update({mobile:'17711111111'},{post:'new-new-new-new-new-new'},function(err, docs) {
+    if (err) {
+      console.log("Error:" + err);
+    }
+    else {
+        console.log("docs:" + docs);
+    }
+    showAllPost(res);
+  });
+}
+
+function showAllPost(res) {
+  Post.find({}, function (err, docs) {
+    if (err) {
+      console.log("Error:" + err);
+    }
+    else {
+        // console.log("docs:" + docs);
+        res.render('index', { title: 'Express', docs: docs});
     }
   });
 }
