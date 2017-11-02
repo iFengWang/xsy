@@ -65,7 +65,7 @@ exports.getSha1 = function(str) {
  * @param str string 要加密的字符串
  * @retrun string 加密后的字符串
  * */
-exports.getHmac = function(str) {
+exports.getMd5 = function(str) {
     var md5sum = crypto.createHash('md5');
     md5sum.update(str);
     str = md5sum.digest('hex');
