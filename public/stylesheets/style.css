@@ -27,3 +27,17 @@ article {
   width: 90%;
   height:500px;
 }
+
+.showPanel {
+  margin: 0 auto;
+  border: dotted 1px rgb(67, 92, 3);
+  width: 90%;
+  height:500px;
+}
+
+.sendPanel {
+  margin: 0 auto;
+  border: dotted 1px rgb(67, 92, 3);
+  width: 90%;
+  height:50px;
+}

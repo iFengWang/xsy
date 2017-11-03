@@ -21,7 +21,7 @@ app.set('address', '0.0.0.0');
  */
 
 var server = http.createServer(app);
-
+app.ready(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
