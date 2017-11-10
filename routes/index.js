@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Post = require('../models/post');
-var cert = require('../modules/crypto/index');
+// var cert = require('../modules/crypto/index');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,10 +18,10 @@ router.post('/', function(req,res, next) {
 
 //业务逻辑************************************************
 function insertPost(req,res,next) {
-  var ss = cert.getEncAse192(req.body.message, 'xiaofeng');
-  console.log('加密：',ss);
-  var orgin = cert.getDecAse192(ss,'xiaofeng');
-  console.log('解密：',orgin);
+//   var ss = cert.getEncAse192(req.body.message, 'xiaofeng');
+//   console.log('加密：',ss);
+//   var orgin = cert.getDecAse192(ss,'xiaofeng');
+//   console.log('解密：',orgin);
 
   var p = new Post({
   mobile:'17799999999',

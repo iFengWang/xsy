@@ -3,7 +3,7 @@ var router = express.Router();
 var socketio = require('socket.io');
 
 router.get('/', function(req, res, next) {
-    res.sendFile('/public/index.html');
+    res.sendFile('/public/socket_client.html');
 });
 
 router.prepareSocketIO = function(server) {
